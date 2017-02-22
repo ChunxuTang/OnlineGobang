@@ -50,7 +50,7 @@ class ModeSelector extends Component {
           </Row>
           <br/>
           <Row>
-            <Col sm={12} md={12} className="text-center">
+            <Col sm={12} md={12}>
               <Button bsStyle="primary" bsSize="large" onClick={ this.multiMode } block>Multiple Player</Button>
             </Col>
           </Row>
