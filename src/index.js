@@ -14,7 +14,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers)}>
     <App/>
   </Provider>,
-  document.querySelector('.container')
+  document.querySelector('.react-container')
 );
 
 
