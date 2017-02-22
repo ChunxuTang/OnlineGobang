@@ -1,0 +1,40 @@
+{
+  "name": "online-gobang",
+  "version": "1.0.0",
+  "description": "Online Gobang app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaTang/OnlineGobang.git"
+  },
+  "author": "Joshua Tang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaTang/OnlineGobang/issues"
+  },
+  "homepage": "https://github.com/JoshuaTang/OnlineGobang#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.1",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "antd": "^2.7.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.4",
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "react-mdl": "^1.9.0",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "socket.io": "^1.7.3"
+  }
+}
