@@ -4,10 +4,18 @@
   <link rel="stylesheet" href="/css/bootstrap.paper.min.css">
   <!--<link rel="stylesheet" href="/css/style.css">-->
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <!-- <link rel="stylesheet" href="/css/offline-theme-slide.css"> -->
+  <link rel="stylesheet" href="/css/offline-theme-slide-indicator.css">
+  <link rel="stylesheet" href="/css/offline-language-english-indicator.css">
+  <link rel="stylesheet" href="/css/offline-language-english.css">
 </head>
 <body>
 <div class="react-container"></div>
 </body>
+<script src="/js/offline.min.js"></script>
 <script src="/js/bundle.js"></script>
+<script>
+  console.log(Offline.check().offline);
+</script>
 <!--<script src="/js/register.js"></script>-->
 </html>
