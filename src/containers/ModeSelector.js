@@ -37,10 +37,16 @@ class ModeSelector extends Component {
   }
 
   render() {
+    const imgStyle = {
+      width: '100%',
+      marginTop: '1em',
+      marginBottom: '1em'
+    };
+
     return (
-      <Modal show={this.state.showModal} bsSize="small">
+      <Modal show={this.state.showModal} bsSize="small" backdrop="static">
         <Modal.Header>
-          <Modal.Title>Online Gobang</Modal.Title>
+          <Modal.Title><img src="/img/logo.png" style={imgStyle} alt="Online Gobang"/></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row>
