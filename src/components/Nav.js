@@ -11,7 +11,7 @@ class Nav extends Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Online Gobang</a>
+            <a href="/">Online Gobang</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
