@@ -54,6 +54,8 @@ class ModeSelector extends Component {
               <Button bsStyle="primary" bsSize="large" onClick={ this.multiMode } block>Multiple Player</Button>
             </Col>
           </Row>
+          <br/>
+          <br/>
         </Modal.Body>
       </Modal>
     );

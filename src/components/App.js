@@ -15,7 +15,7 @@ export default class App extends Component {
       <div>
         <ModeSelector/>
         <Nav/>
-        <div className="container-fluid">
+        <div className="container">
           <ControlPanel/>
           <Board/>
         </div>

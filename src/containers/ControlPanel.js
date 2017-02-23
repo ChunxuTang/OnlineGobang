@@ -2,9 +2,9 @@
  * Created by Chunxu on 2017/2/21.
  */
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Row, Col, Button} from 'react-bootstrap';
 
 class ControlPanel extends Component {
   render() {
@@ -14,14 +14,22 @@ class ControlPanel extends Component {
       return <div></div>;
     }
 
+    const colStyle = {
+      marginBottom: '1em'
+    };
+
     return (
-      <div className="row">
-          <div className="row">
+      <div>
+        <Row>
+          <Col sm={12} md={12} style={colStyle}>
             <Button bsStyle="primary">Create Game</Button>
-          </div>
-          <div className="row">
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={12} style={colStyle}>
             <Button bsStyle="primary">Join Game</Button>
-          </div>
+          </Col>
+        </Row>
       </div>
     );
   }
