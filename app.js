@@ -18,6 +18,15 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
+io.on('connection', (socket) => {
+  console.log(socket.id, 'connected');
+
+  socket.on('test message', (msg) => {
+    console.log('test message', msg);
+    io.emit('test message', msg);
+  })
+});
+
 server.listen(app.get('port'), () => {
   console.log(`App is running at http://localhost:${app.get('port')} `);
 });
