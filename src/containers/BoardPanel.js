@@ -12,21 +12,24 @@ class BoardPanel extends Component {
   render() {
     console.log('BoardPanel', this.props.mode);
 
+    let boardElem;
     if (this.props.mode === 'single') {
-      return (
-        <Row>
-          <Col sm={12} md={12}>
-            <Panel header="Board" bsStyle="primary">
-              <SingleBoard/>
-            </Panel>
-          </Col>
-        </Row>
-      );
+      boardElem = <SingleBoard/>;
+    } else if (this.props.mode === 'multiple') {
+      boardElem = <div></div>;
     } else {
-      return (
-        <div></div>
-      );
+      boardElem = <div></div>;
     }
+
+    return (
+      <Row>
+        <Col sm={12} md={12}>
+          <Panel header="Board" bsStyle="primary">
+            {boardElem}
+          </Panel>
+        </Col>
+      </Row>
+    );
 
   }
 }

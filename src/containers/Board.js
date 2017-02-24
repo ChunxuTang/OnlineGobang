@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 // import {connect} from 'react-redux';
 // import {Row, Col, Panel} from 'react-bootstrap';
 
-
+// http://stackoverflow.com/questions/35677235/how-to-extend-a-react-component
 
 export default class Board extends Component {
   constructor(props) {
