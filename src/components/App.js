@@ -6,7 +6,8 @@ import React, {Component} from 'react';
 
 import Nav from './Nav';
 import ControlPanel from '../containers/ControlPanel';
-import Board from '../containers/Board';
+// import Board from '../containers/Board';
+import BoardPanel from '../containers/BoardPanel';
 import ModeSelector from '../containers/ModeSelector';
 
 export default class App extends Component {
@@ -17,7 +18,7 @@ export default class App extends Component {
         <Nav/>
         <div className="container">
           <ControlPanel/>
-          <Board/>
+          <BoardPanel/>
         </div>
       </div>
     );
