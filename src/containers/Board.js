@@ -3,8 +3,6 @@
  */
 
 import React, {Component} from 'react';
-// import {connect} from 'react-redux';
-// import {Row, Col, Panel} from 'react-bootstrap';
 
 // http://stackoverflow.com/questions/35677235/how-to-extend-a-react-component
 
@@ -123,36 +121,4 @@ export default class Board extends Component {
     this.ctx.fill();
   }
 
-
-  // registerSingleMode() {
-  //   console.log('single board');
-  // }
-  //
-  // registerMultiMode() {
-  //   console.log('multi board');
-  // }
-
-  // render() {
-  //   console.log('Board', this.props.mode);
-  //
-  //   if (this.props.mode === 'single') {
-  //     this.registerSingleMode();
-  //   } else if (this.props.mode === 'multiple') {
-  //     this.registerMultiMode();
-  //   }
-  //
-  //   return (
-  //     <canvas id="board" onClick={ this.handleClick } className="center-block" width="450px"
-  //             height="450px;"></canvas>
-  //
-  //   );
-  // }
 }
-//
-// function mapStateToProps(state) {
-//   return {
-//     mode: state.mode
-//   };
-// }
-//
-// export default connect(mapStateToProps)(SingleBoard);
