@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {Row, Col, Panel} from 'react-bootstrap';
 // import Board from './Board';
 import SingleBoard from './SingleBoard';
+import WinAlert from './WinAlert';
 
 class BoardPanel extends Component {
   render() {
@@ -23,6 +24,9 @@ class BoardPanel extends Component {
 
     return (
       <Row>
+        <Col sm={12} md={12}>
+          <WinAlert/>
+        </Col>
         <Col sm={12} md={12}>
           <Panel header="Board" bsStyle="primary">
             {boardElem}

@@ -11,3 +11,9 @@ export const selectSinglePlayerMode = () => ({
 export const selectMultiPlayerMode = () => ({
   type: types.START_MULTI_MODE
 });
+
+export const sideWon = (color, me) => ({
+  type: types.SIDE_WON,
+  color,
+  me
+});
