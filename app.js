@@ -21,6 +21,16 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log(socket.id, 'connected');
 
+  //socket.emit('test message', 'hello');
+
+  socket.on('action', (e) => {
+    console.log('action', e);
+
+    socket.broadcast.emit('action', Object.assign(e, {
+      type: 'ADD_PIECE'
+    }));
+  });
+
   socket.on('test message', (msg) => {
     console.log('test message', msg);
     io.emit('test message', msg);

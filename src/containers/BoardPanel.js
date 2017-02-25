@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {Row, Col, Panel} from 'react-bootstrap';
 // import Board from './Board';
 import SingleBoard from './SingleBoard';
+import MultiBoard from './MultiBoard';
 import WinAlert from './WinAlert';
 
 class BoardPanel extends Component {
@@ -17,7 +18,7 @@ class BoardPanel extends Component {
     if (this.props.mode === 'single') {
       boardElem = <SingleBoard/>;
     } else if (this.props.mode === 'multiple') {
-      boardElem = <div></div>;
+      boardElem = <MultiBoard/>;
     } else {
       boardElem = <div></div>;
     }

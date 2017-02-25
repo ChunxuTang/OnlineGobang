@@ -17,3 +17,9 @@ export const sideWon = (color, me) => ({
   color,
   me
 });
+
+export const addPiece = (x, y) => ({
+  type: types.SERVER_ADD_PIECE,
+  x,
+  y
+});

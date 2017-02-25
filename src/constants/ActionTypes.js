@@ -8,3 +8,5 @@ export const SIDE_WON = 'SIDE_WON';
 export const CREATE_ROOM = 'CREATE_ROOM';
 export const JOIN_ROOM = 'JOIN_ROOM';
 export const ADD_PIECE = 'ADD_PIECE';
+export const SERVER_ADD_PIECE = 'server/ADD_PIECE';
+
