@@ -120,6 +120,7 @@ class SingleBoard extends Board {
   }
 
   handleClick(e) {
+    e.preventDefault();
     if (this.gameOver || !this.myTurn) {
       return;
     }

@@ -6,26 +6,35 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Board from './Board';
-import { addPiece } from '../actions/index';
+import { addPiece, sideWon } from '../actions/index';
 
 class MultiBoard extends Board {
   constructor(props) {
     console.log(props);
     super(props);
 
-    this.color = '';
+    //this.color = '';
+    this.myWin = [];
+    this.computerWin = [];
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.startGame();
+    this.initWinArrays();
+  }
 
+  initWinArrays() {
+    for (let i = 0; i < this.count; i++) {
+      this.myWin[i] = 0;
+      this.computerWin[i] = 0;
+    }
   }
 
   handleClick(e) {
     e.preventDefault();
-    if (this.gameOver || !this.myTurn) {
+    if (this.gameOver || !this.myTurn || !this.props.color) {
       return;
     }
 
@@ -37,7 +46,16 @@ class MultiBoard extends Board {
       console.log('color', this.props.color);
       this.drawPiece(i, j, this.props.color === 'Black');
       this.chessBoard[i][j] = 1;
-
+      for (let k = 0; k < this.count; k++) {
+        if (this.wins[i][j][k]) {
+          this.myWin[k]++;
+          this.computerWin[k] = 6;
+          if (this.myWin[k] === 5) {
+            this.props.sideWon(this.props.color, true);
+            this.gameOver = true;
+          }
+        }
+      }
 
       if (!this.gameOver) {
         this.myTurn = false;
@@ -49,17 +67,25 @@ class MultiBoard extends Board {
     console.log('call multi board.js');
     console.log(this.props.game);
 
-    // if (typeof this.props.color === 'string') {
-    //   console.log('this color', this.props.color);
-    //   this.color = this.props.color;
-    // }
-
     if (this.props.game.piece) {
       let x = this.props.game.piece.x;
       let y = this.props.game.piece.y;
       this.drawPiece(x, y, this.props.color === 'White');
-      this.chessBoard[x][y] = 1;
-      this.myTurn = true;
+      this.chessBoard[x][y] = 2;
+      for (let k = 0; k < this.count; k++) {
+        if (this.wins[x][y][k]) {
+          this.computerWin[k]++;
+          this.myWin[k] = 6;
+          if (this.computerWin[k] === 5) {
+            this.props.sideWon(this.props.color, false);
+            this.gameOver = true;
+          }
+        }
+      }
+      if (!this.gameOver) {
+        this.myTurn = true;
+      }
+
       console.log('my turn ', this.myTurn);
     }
     return (
@@ -78,7 +104,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addPiece
+    addPiece,
+    sideWon
   }, dispatch);
 }
 
