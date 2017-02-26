@@ -6,19 +6,23 @@ const Room = require('../models/Room');
 const crypto = require('crypto');
 
 
-exports.createRoom = (socket) => {
+exports.createRoom = (socket, callback) => {
   const room = new Room({
     roomId: crypto.randomBytes(4).toString("hex"),
     black: socket
   });
 
+  console.log(room);
+
   room.save((err, obj) => {
     if (err) {
       console.log('room save err: ', err);
-      return;
+      callback(err);
     }
     console.log(obj);
-    return obj.roomId;
+    callback(null, obj.roomId);
+    // console.log(obj.roomId);
+    // return obj.roomId;
   });
 };
 
@@ -26,7 +30,7 @@ exports.addWhite = (socket, room) => {
   Room.findOneAndUpdate({
     roomId: room
   }, {
-    $set: { white: socket }
+    $set: {white: socket}
   }, {
     new: true
   }, (err, obj) => {
@@ -35,5 +39,13 @@ exports.addWhite = (socket, room) => {
       return;
     }
     return obj;
+  });
+};
+
+exports.removeRoom = (room) => {
+  Room.remove({
+    roomId: room
+  }, (err) => {
+    console.log('remove room err: ', err);
   });
 };

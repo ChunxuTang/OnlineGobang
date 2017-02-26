@@ -14,6 +14,11 @@ const game = (state = {}, action) => {
           y: action.y
         }
       });
+    case types.CREATE_ROOM:
+    case types.JOIN_ROOM:
+      return Object.assign({}, {
+        room: action.room
+      });
     default:
       return state;
   }

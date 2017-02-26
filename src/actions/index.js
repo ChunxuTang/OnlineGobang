@@ -18,6 +18,15 @@ export const sideWon = (color, me) => ({
   me
 });
 
+export const createRoom = () => ({
+  type: types.SERVER_CREATE_ROOM
+});
+
+export const joinRoom = (room) => ({
+  type: types.SERVER_JOIN_ROOM,
+  room
+});
+
 export const addPiece = (x, y) => ({
   type: types.SERVER_ADD_PIECE,
   x,
