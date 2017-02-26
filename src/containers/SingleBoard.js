@@ -2,8 +2,8 @@
  * Created by Chunxu on 2017/2/23.
  */
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Board from './Board';
 import { sideWon } from '../actions/index';

@@ -6,6 +6,10 @@ const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
 const mongoose = require('mongoose');
+const crypto = require('crypto');
+
+const userController = require('./controllers/user');
+const roomController = require('./controllers/room');
 
 const app = express();
 const server = http.createServer(app);
@@ -23,12 +27,26 @@ io.on('connection', (socket) => {
 
   //socket.emit('test message', 'hello');
 
-  socket.on('action', (e) => {
+  socket.on('action', (e, fn) => {
     console.log('action', e);
 
-    socket.broadcast.emit('action', Object.assign(e, {
-      type: 'ADD_PIECE'
-    }));
+    if (e.type === 'server/ADD_PIECE') {
+      socket.broadcast.emit('action', Object.assign(e, {
+        type: 'ADD_PIECE'
+      }));
+    } else if (e.type === 'server/CREATE_ROOM') {
+      let room = roomController.createRoom(socket);
+      userController.createUserRoom(socket, room);
+      socket.join(room);
+      fn(room);
+    } else if (e.type === 'server/JOIN_ROOM') {
+      // There should be a room attribute in the event.
+      roomController.addWhite(socket, e.room);
+      socket.join(room);
+    } else if (e.type === 'server/SIDE_WON') {
+
+    }
+
   });
 
   socket.on('test message', (msg) => {
@@ -36,6 +54,10 @@ io.on('connection', (socket) => {
     io.emit('test message', msg);
   })
 });
+
+const id = crypto.randomBytes(4).toString("hex");
+console.log(id);
+console.log(crypto.randomBytes(4).toString("hex"));
 
 server.listen(app.get('port'), () => {
   console.log(`App is running at http://localhost:${app.get('port')} `);
