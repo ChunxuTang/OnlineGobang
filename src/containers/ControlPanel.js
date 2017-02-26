@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {Row, Col, Button, Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
-import { createRoom, joinRoom } from '../actions/index';
+import { createRoom, joinRoom, selectSide } from '../actions/index';
 
 
 class ControlPanel extends Component {
@@ -26,10 +26,12 @@ class ControlPanel extends Component {
   handleCreateRoom() {
     console.log('create room');
     this.props.createRoom();
+    this.props.selectSide('Black');
   }
 
   handleJoinRoom() {
     this.props.joinRoom(this.state.room);
+    this.props.selectSide('White');
     console.log(this.state.room);
   }
 
@@ -95,7 +97,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     createRoom,
-    joinRoom
+    joinRoom,
+    selectSide
   }, dispatch);
 }
 

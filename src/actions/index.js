@@ -27,6 +27,11 @@ export const joinRoom = (room) => ({
   room
 });
 
+export const selectSide = (color) => ({
+  type: types.SELECT_SIDE,
+  color
+});
+
 export const addPiece = (x, y) => ({
   type: types.SERVER_ADD_PIECE,
   x,

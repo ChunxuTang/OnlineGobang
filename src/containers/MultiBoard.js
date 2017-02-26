@@ -13,6 +13,8 @@ class MultiBoard extends Board {
     console.log(props);
     super(props);
 
+    this.color = '';
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -32,7 +34,8 @@ class MultiBoard extends Board {
 
     if (this.chessBoard[i][j] === 0) {
       this.props.addPiece(i, j);
-      this.drawPiece(i, j, true);
+      console.log('color', this.props.color);
+      this.drawPiece(i, j, this.props.color === 'Black');
       this.chessBoard[i][j] = 1;
 
 
@@ -45,10 +48,16 @@ class MultiBoard extends Board {
   render() {
     console.log('call multi board.js');
     console.log(this.props.game);
+
+    // if (typeof this.props.color === 'string') {
+    //   console.log('this color', this.props.color);
+    //   this.color = this.props.color;
+    // }
+
     if (this.props.game.piece) {
       let x = this.props.game.piece.x;
       let y = this.props.game.piece.y;
-      this.drawPiece(x, y, true);
+      this.drawPiece(x, y, this.props.color === 'White');
       this.chessBoard[x][y] = 1;
       this.myTurn = true;
       console.log('my turn ', this.myTurn);
@@ -62,7 +71,8 @@ class MultiBoard extends Board {
 
 function mapStateToProps(state) {
   return {
-    game: state.game
+    game: state.game,
+    color: state.color
   };
 }
 

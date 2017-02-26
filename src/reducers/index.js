@@ -6,11 +6,13 @@ import { combineReducers } from 'redux';
 import mode from './reducer_mode';
 import side from './reducer_side';
 import game from './reducer_game';
+import color from './reducer_color';
 
 const rootReducer = combineReducers({
   mode,
   side,
-  game
+  game,
+  color
 });
 
 export default rootReducer;
