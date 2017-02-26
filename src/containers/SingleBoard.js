@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Board from './Board';
-import { blackWon, whiteWon, sideWon } from '../actions/index';
+import { sideWon } from '../actions/index';
 
 class SingleBoard extends Board {
   constructor(props) {
@@ -165,8 +165,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    blackWon,
-    whiteWon,
     sideWon
   }, dispatch);
 }
