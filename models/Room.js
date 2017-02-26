@@ -4,7 +4,7 @@
 
 const mongoose = require('mongoose');
 
-const RoomSchema = new mongoose.Schema({
+const roomSchema = new mongoose.Schema({
   id: {
     type: String,
     required: true,
@@ -18,6 +18,6 @@ const RoomSchema = new mongoose.Schema({
   }
 });
 
-const Room = mongoose.model('Room', RoomSchema);
+const Room = mongoose.model('Room', roomSchema);
 
 module.exports = Room;
