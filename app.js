@@ -15,6 +15,14 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on('error', () => {
+  console.log('%s MongoDB connection error. Please make sure MongoDB is running.');
+  process.exit();
+});
+
+
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
