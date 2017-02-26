@@ -2,9 +2,9 @@
  * Created by Chunxu on 2017/2/24.
  */
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Alert} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Alert } from 'react-bootstrap';
 
 class WinAlert extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class WinAlert extends Component {
 
     return (
       <Alert bsStyle={alertStyle}>
-        <h4>{this.props.side.color} side won!</h4>
+        <h4>{side.color} side won!</h4>
       </Alert>
     );
 

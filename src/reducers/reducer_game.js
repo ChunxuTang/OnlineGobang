@@ -8,12 +8,6 @@ const game = (state = {}, action) => {
   console.log('socketio', action);
   switch (action.type) {
     case types.ADD_PIECE:
-      console.log(Object.assign({}, {
-        piece: {
-          x: action.x,
-          y: action.y
-        }
-      }));
       return Object.assign({}, {
         piece: {
           x: action.x,
