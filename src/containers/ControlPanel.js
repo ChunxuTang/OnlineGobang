@@ -14,7 +14,7 @@ class ControlPanel extends Component {
     super(props);
 
     this.state = {
-      room: '123'
+      room: ''
     };
 
     this.handleCreateRoom = this.handleCreateRoom.bind(this);
@@ -30,6 +30,9 @@ class ControlPanel extends Component {
   }
 
   handleJoinRoom() {
+    if (this.state.room.length < 1) {
+      return;
+    }
     this.props.joinRoom(this.state.room);
     this.props.selectSide('White');
     console.log(this.state.room);
