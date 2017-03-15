@@ -4,9 +4,9 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
 import {Row, Col, Button, Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
-import { createRoom, joinRoom, selectSide } from '../actions/index';
+import {createRoom, joinRoom, selectSide} from '../actions/index';
 
 
 class ControlPanel extends Component {
@@ -78,9 +78,10 @@ class ControlPanel extends Component {
             <Form onSubmit={this.handleSubmit} inline>
               <Button bsStyle="primary" type="submit">Join Game</Button>
               {/*<FormGroup controlId="roomId">*/}
-                {/*<FormControl type="text" value={this.state.room} placeholder="Enter room id" style={inputStyle}/>*/}
+              {/*<FormControl type="text" value={this.state.room} placeholder="Enter room id" style={inputStyle}/>*/}
               {/*</FormGroup>*/}
-              <input value={this.state.room} onChange={this.handleInputChange} className="form-control" placeholder="Enter room id" style={inputStyle} />
+              <input value={this.state.room} onChange={this.handleInputChange} className="form-control"
+                     placeholder="Enter room id" style={inputStyle}/>
             </Form>
           </Col>
         </Row>

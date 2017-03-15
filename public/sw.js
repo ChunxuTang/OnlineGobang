@@ -6,7 +6,8 @@ const CACHE_NAME = 'online-gobang-v1';
 const urlsToCache = [
   '/',
   '/css/style.css',
-  '/js/bundle.js'
+  '/js/bundle.js',
+  '/js/offline.min.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -35,6 +36,9 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   console.log(event.request);
+  if (event.request.method !== 'GET') {
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((res) => {
       if (res) {
