@@ -15,7 +15,7 @@ class ModeSelector extends Component {
     super(props);
     this.state = {
       showModal: true,
-      offline: Offline.check().offline
+      offline: !navigator.onLine
     };
 
     this.singleMode = this.singleMode.bind(this);
@@ -44,6 +44,8 @@ class ModeSelector extends Component {
       marginTop: '1em',
       marginBottom: '1em'
     };
+
+    // console.log('this state', Offline.check().offline);
 
     return (
       <Modal show={this.state.showModal} bsSize="small" backdrop="static">

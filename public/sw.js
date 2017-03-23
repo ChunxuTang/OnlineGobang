@@ -7,8 +7,9 @@ const urlsToCache = [
   '/',
   '/css/style.css',
   '/js/bundle.js',
-  '/js/offline.min.js'
+  '/js/register.js'
 ];
+
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -35,13 +36,14 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  console.log(event.request);
+  //console.log(event.request);
   if (event.request.method !== 'GET') {
     return;
   }
   event.respondWith(
     caches.match(event.request).then((res) => {
       if (res) {
+        console.log('HHHHHIT');
         return res;
       }
 
@@ -58,6 +60,8 @@ self.addEventListener('fetch', (event) => {
         });
 
         return res;
+      }).catch((err) => {
+        console.log(err);
       });
     })
   );

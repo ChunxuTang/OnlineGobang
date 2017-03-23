@@ -31,6 +31,11 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
+app.get('/offline', (req, res) => {
+  res.sendFile('offline.html');
+});
+
+
 io.on('connection', (socket) => {
   console.log(socket.id, 'connected');
 
