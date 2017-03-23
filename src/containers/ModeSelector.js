@@ -45,8 +45,6 @@ class ModeSelector extends Component {
       marginBottom: '1em'
     };
 
-    // console.log('this state', Offline.check().offline);
-
     return (
       <Modal show={this.state.showModal} bsSize="small" backdrop="static">
         <Modal.Header>
