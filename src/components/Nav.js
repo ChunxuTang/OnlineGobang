@@ -2,8 +2,8 @@
  * Created by Chunxu on 2017/2/22.
  */
 
-import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Navbar} from 'react-bootstrap';
 
 class Nav extends Component {
   render() {

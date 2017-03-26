@@ -4,7 +4,7 @@
 
 import * as types from '../constants/ActionTypes'
 
-const mode = (state=[], action) => {
+const mode = (state = [], action) => {
   console.log('reducer: ', action);
   switch (action.type) {
     case types.START_SINGLE_MODE:

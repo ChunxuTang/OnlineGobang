@@ -4,8 +4,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 
@@ -17,7 +17,7 @@ const socket = io(`${location.protocol}//${location.hostname}:3000`);
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducers);
-store.subscribe(()=>{
+store.subscribe(() => {
   console.log('new client state', store.getState());
 });
 // store.dispatch({

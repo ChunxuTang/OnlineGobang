@@ -1,21 +1,13 @@
-/**
- * Created by Chunxu on 2017/2/24.
- */
-
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
+
 import Board from './Board';
-import { addPiece, sideWon } from '../actions/index';
+import {addPiece, sideWon} from '../actions/index';
 
 class MultiBoard extends Board {
   constructor(props) {
-    console.log(props);
     super(props);
-
-    //this.color = '';
-    // this.myWin = [];
-    // this.otherWin = [];
 
     this.handleClick = this.handleClick.bind(this);
   }

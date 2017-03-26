@@ -1,6 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/21.
- */
 
 const CACHE_NAME = 'online-gobang-v1';
 const urlsToCache = [

@@ -1,6 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/18.
- */
 
 export const START_SINGLE_MODE = 'START_SINGLE_MODE';
 export const START_MULTI_MODE = 'START_MULTI_MODE';
