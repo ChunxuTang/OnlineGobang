@@ -19,8 +19,8 @@ class SingleBoard extends Board {
     // this.gameOver = false;
     // this.myTurn = true;
     // this.wins = [];
-    this.myWin = [];
-    this.computerWin = [];
+    // this.myWin = [];
+    // this.otherWin = [];
     // this.count = 0;
 
     this.handleClick = this.handleClick.bind(this);
@@ -28,14 +28,6 @@ class SingleBoard extends Board {
 
   componentDidMount() {
     this.startGame();
-    this.initWinArrays();
-  }
-
-  initWinArrays() {
-    for (let i = 0; i < this.count; i++) {
-      this.myWin[i] = 0;
-      this.computerWin[i] = 0;
-    }
   }
 
   computerAI() {
@@ -65,13 +57,13 @@ class SingleBoard extends Board {
               } else if (this.myWin[k] == 4) {
                 myScore[i][j] += 10000;
               }
-              if (this.computerWin[k] == 1) {
+              if (this.otherWin[k] == 1) {
                 computerScore[i][j] += 220;
-              } else if (this.computerWin[k] == 2) {
+              } else if (this.otherWin[k] == 2) {
                 computerScore[i][j] += 420;
-              } else if (this.computerWin[k] == 3) {
+              } else if (this.otherWin[k] == 3) {
                 computerScore[i][j] += 2100;
-              } else if (this.computerWin[k] == 4) {
+              } else if (this.otherWin[k] == 4) {
                 computerScore[i][j] += 20000;
               }
             }
@@ -105,9 +97,9 @@ class SingleBoard extends Board {
     this.chessBoard[u][v] = 2;
     for (let k = 0; k < this.count; k++) {
       if (this.wins[u][v][k]) {
-        this.computerWin[k]++;
+        this.otherWin[k]++;
         this.myWin[k] = 6;
-        if (this.computerWin[k] === 5) {
+        if (this.otherWin[k] === 5) {
           //window.alert('Computer wins');
           this.props.sideWon('White', false);
           this.gameOver = true;
@@ -134,7 +126,7 @@ class SingleBoard extends Board {
       for (let k = 0; k < this.count; k++) {
         if (this.wins[i][j][k]) {
           this.myWin[k]++;
-          this.computerWin[k] = 6;
+          this.otherWin[k] = 6;
           if (this.myWin[k] === 5) {
             //window.alert("You win!");
             this.props.sideWon('Black', true);

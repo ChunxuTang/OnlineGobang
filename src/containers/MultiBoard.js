@@ -14,22 +14,14 @@ class MultiBoard extends Board {
     super(props);
 
     //this.color = '';
-    this.myWin = [];
-    this.computerWin = [];
+    // this.myWin = [];
+    // this.otherWin = [];
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.startGame();
-    this.initWinArrays();
-  }
-
-  initWinArrays() {
-    for (let i = 0; i < this.count; i++) {
-      this.myWin[i] = 0;
-      this.computerWin[i] = 0;
-    }
   }
 
   otherSideColor() {
@@ -59,7 +51,7 @@ class MultiBoard extends Board {
       for (let k = 0; k < this.count; k++) {
         if (this.wins[i][j][k]) {
           this.myWin[k]++;
-          this.computerWin[k] = 6;
+          this.otherWin[k] = 6;
           if (this.myWin[k] === 5) {
             this.props.sideWon(this.props.color, true);
             this.gameOver = true;
@@ -84,9 +76,9 @@ class MultiBoard extends Board {
       this.chessBoard[x][y] = 2;
       for (let k = 0; k < this.count; k++) {
         if (this.wins[x][y][k]) {
-          this.computerWin[k]++;
+          this.otherWin[k]++;
           this.myWin[k] = 6;
-          if (this.computerWin[k] === 5) {
+          if (this.otherWin[k] === 5) {
             this.props.sideWon(this.otherSideColor(), false);
             this.gameOver = true;
           }

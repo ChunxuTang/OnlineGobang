@@ -16,17 +16,9 @@ export default class Board extends Component {
     this.gameOver = false;
     this.myTurn = true;
     this.wins = [];
-    // this.myWin = [];
-    // this.computerWin = [];
+    this.myWin = [];
+    this.otherWin = [];
     this.count = 0;
-  }
-
-  render() {
-    console.log('call board.js');
-    return (
-      <canvas id="board" {...this.props} className="center-block" width="450px"
-              height="450px;"/>
-    );
   }
 
   startGame() {
@@ -80,11 +72,20 @@ export default class Board extends Component {
         this.count++;
       }
     }
+
+    this.initWinArrays();
+  }
+
+  initWinArrays() {
+    for (let i = 0; i < this.count; i++) {
+      this.myWin[i] = 0;
+      this.otherWin[i] = 0;
+    }
   }
 
   drawBoard() {
     for (let i = 0; i < 15; i++) {
-      this.ctx.strokeStyle = '#BFBFBF';
+      this.ctx.strokeStyle = '#424242';
       this.ctx.beginPath();
       this.ctx.moveTo(15 + i * 30, 15);
       this.ctx.lineTo(15 + i * 30, this.canvas.height - 15);
@@ -99,7 +100,7 @@ export default class Board extends Component {
   }
 
   clearBoard() {
-    this.ctx.fillStyle = "#FFFFFF";
+    this.ctx.fillStyle = "#cd8500";
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
@@ -111,7 +112,7 @@ export default class Board extends Component {
     let gradient = this.ctx.createRadialGradient(15 + x * 30 + 2, 15 + y * 30 - 2, 13, 15 + x * 30 + 2, 15 + y * 30 - 2, 0);
     if (isBlack) {
       gradient.addColorStop(0, "#0A0A0A");
-      gradient.addColorStop(1, "#636766");
+      gradient.addColorStop(1, "#616161");
     } else {
       gradient.addColorStop(0, "#d1d1d1");
       gradient.addColorStop(1, "#f9f9f9");
@@ -121,4 +122,11 @@ export default class Board extends Component {
     this.ctx.fill();
   }
 
+  render() {
+    console.log('call board.js');
+    return (
+      <canvas id="board" {...this.props} className="center-block" width="450px"
+              height="450px;"/>
+    );
+  }
 }
