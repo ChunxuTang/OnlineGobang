@@ -32,6 +32,16 @@ class MultiBoard extends Board {
     }
   }
 
+  otherSideColor() {
+    if (!this.props.color) {
+      return '';
+    } else if (this.props.color === 'White') {
+      return 'Black';
+    } else {
+      return 'White';
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
     if (this.gameOver || !this.myTurn || !this.props.color) {
@@ -77,7 +87,7 @@ class MultiBoard extends Board {
           this.computerWin[k]++;
           this.myWin[k] = 6;
           if (this.computerWin[k] === 5) {
-            this.props.sideWon(this.props.color, false);
+            this.props.sideWon(this.otherSideColor(), false);
             this.gameOver = true;
           }
         }
