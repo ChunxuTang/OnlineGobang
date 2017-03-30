@@ -29,6 +29,13 @@ class WinAlert extends Component {
     });
   }
 
+  utter() {
+    if ('speechSynthesis' in window) {
+      let msg = new SpeechSynthesisUtterance(`${this.props.side.color} side won!`);
+      window.speechSynthesis.speak(msg);
+    }
+  }
+
   render() {
     console.log('WinAlert', this.props.side);
 
@@ -43,6 +50,7 @@ class WinAlert extends Component {
       alertStyle = 'warning';
     }
 
+    this.utter();
     return (
       <Alert bsStyle={alertStyle}>
         <h4>{side.color} side won!</h4>
