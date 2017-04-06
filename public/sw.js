@@ -2,7 +2,10 @@
 const CACHE_NAME = 'online-gobang-v1';
 const urlsToCache = [
   '/',
+  '/index.html',
   '/css/style.css',
+  '/css/bootstrap.cosmo.min.css',
+  '/img/logo.png',
   '/js/bundle.js',
   '/js/register.js'
 ];
