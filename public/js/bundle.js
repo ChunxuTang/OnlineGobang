@@ -87,7 +87,7 @@
 	 * Created by Chunxu on 2017/2/16.
 	 */
 
-	var socket = (0, _socket2.default)(location.protocol + '//' + location.hostname + ':3000');
+	var socket = (0, _socket2.default)(location.protocol + '//' + location.hostname + ':80');
 	var socketIoMiddleware = (0, _reduxSocket2.default)(socket, 'server/');
 
 	var store = (0, _redux.applyMiddleware)(socketIoMiddleware)(_redux.createStore)(_reducers2.default);

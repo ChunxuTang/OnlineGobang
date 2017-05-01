@@ -13,7 +13,7 @@ import App from './components/App';
 import reducers from './reducers';
 
 
-const socket = io(`${location.protocol}//${location.hostname}:3000`);
+const socket = io(`${location.protocol}//${location.hostname}:80`);
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducers);
