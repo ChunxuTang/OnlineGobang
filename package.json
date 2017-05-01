@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Online Gobang app",
   "main": "app.js",
+  "engines": {
+    "node": "7.6.0"
+  },
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
