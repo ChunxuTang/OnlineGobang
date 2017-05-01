@@ -6,12 +6,11 @@ const urlsToCache = [
   '/css/style.css',
   '/css/bootstrap.cosmo.min.css',
   '/img/logo.png',
-  '/js/bundle.js',
-  '/js/register.js'
+  '/js/bundle.js'
 ];
 
-
 self.addEventListener('install', (event) => {
+  console.log('installing service worker...');
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('open cache');
@@ -20,23 +19,23 @@ self.addEventListener('install', (event) => {
   );
 });
 
-self.addEventListener('activate', (event) => {
-  const cacheWhiteList = [];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (!cacheWhiteList.includes(cache)) {
-            return caches.delete(cache);
-          }
-        })
-      );
-    })
-  );
-});
+// self.addEventListener('activate', (event) => {
+//   const cacheWhiteList = [];
+//   event.waitUntil(
+//     caches.keys().then((cacheNames) => {
+//       return Promise.all(
+//         cacheNames.map((cache) => {
+//           if (!cacheWhiteList.includes(cache)) {
+//             return caches.delete(cache);
+//           }
+//         })
+//       );
+//     })
+//   );
+// });
 
 self.addEventListener('fetch', (event) => {
-  //console.log(event.request);
+  console.log('fetching a request...');
   if (event.request.method !== 'GET') {
     return;
   }
