@@ -7,7 +7,6 @@ const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
 const mongoose = require('mongoose');
-const crypto = require('crypto');
 
 const userController = require('./controllers/user');
 const roomController = require('./controllers/room');
@@ -31,15 +30,8 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-app.get('/offline', (req, res) => {
-  res.sendFile('offline.html');
-});
-
-
 io.on('connection', (socket) => {
   console.log(socket.id, 'connected');
-
-  //socket.emit('test message', 'hello');
 
   socket.on('action', (e) => {
     console.log('action', e);
@@ -69,8 +61,8 @@ io.on('connection', (socket) => {
       roomController.addWhite(socket.id, e.room);
       userController.createUserRoom(socket.id, e.room);
       socket.join(e.room);
-    } else if (e.type === 'server/SIDE_WON') {
-
+    } else {
+      console.log('unknown type!');
     }
 
   });
