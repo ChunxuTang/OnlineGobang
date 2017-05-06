@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/25.
- */
-
 const Room = require('../models/Room');
 const crypto = require('crypto');
 
@@ -21,8 +17,6 @@ exports.createRoom = (socket, callback) => {
     }
     console.log(obj);
     callback(null, obj.roomId);
-    // console.log(obj.roomId);
-    // return obj.roomId;
   });
 };
 

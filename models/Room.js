@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/21.
- */
-
 const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({

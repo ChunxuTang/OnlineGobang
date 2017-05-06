@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/25.
- */
-
 const User = require('../models/User');
 
 exports.createUserRoom = (socket, room) => {
