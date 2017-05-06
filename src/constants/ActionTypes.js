@@ -1,4 +1,3 @@
-
 export const START_SINGLE_MODE = 'START_SINGLE_MODE';
 export const START_MULTI_MODE = 'START_MULTI_MODE';
 export const SIDE_WON = 'SIDE_WON';

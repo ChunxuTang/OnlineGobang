@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/22.
- */
-
 import React, {Component} from 'react';
 import {Navbar} from 'react-bootstrap';
 

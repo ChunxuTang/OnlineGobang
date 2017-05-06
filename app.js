@@ -1,6 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/21.
- */
 require('./config/config');
 const express = require('express');
 const http = require('http');

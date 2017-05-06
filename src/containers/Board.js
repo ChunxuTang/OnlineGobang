@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 
 // http://stackoverflow.com/questions/35677235/how-to-extend-a-react-component
@@ -31,6 +30,11 @@ export default class Board extends Component {
     this.clearBoard();
     this.drawBoard();
 
+    this.initWins();
+    this.initWinArrays();
+  }
+
+  initWins() {
     for (let i = 0; i < 15; i++) {
       this.wins[i] = [];
       for (let j = 0; j < 15; j++) {
@@ -69,8 +73,6 @@ export default class Board extends Component {
         this.count++;
       }
     }
-
-    this.initWinArrays();
   }
 
   initWinArrays() {
@@ -106,7 +108,8 @@ export default class Board extends Component {
     this.ctx.arc(15 + x * 30, 15 + y * 30, 13, 0, 2 * Math.PI);
     this.ctx.closePath();
 
-    let gradient = this.ctx.createRadialGradient(15 + x * 30 + 2, 15 + y * 30 - 2, 13, 15 + x * 30 + 2, 15 + y * 30 - 2, 0);
+    let gradient = this.ctx.createRadialGradient(15 + x * 30 + 2, 15 + y * 30 - 2, 13,
+        15 + x * 30 + 2, 15 + y * 30 - 2, 0);
     if (isBlack) {
       gradient.addColorStop(0, "#0A0A0A");
       gradient.addColorStop(1, "#616161");
@@ -122,8 +125,8 @@ export default class Board extends Component {
   render() {
     console.log('call board.js');
     return (
-      <canvas id="board" {...this.props} className="center-block" width="450px"
-              height="450px;"/>
+        <canvas id="board" {...this.props} className="center-block" width="450px"
+                height="450px;"/>
     );
   }
 }

@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/26.
- */
-
 import * as types from '../constants/ActionTypes';
 
 const color = (state = [], action) => {

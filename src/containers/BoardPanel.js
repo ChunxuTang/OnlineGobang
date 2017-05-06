@@ -1,11 +1,6 @@
-/**
- * Created by Chunxu on 2017/2/23.
- */
-
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Row, Col, Panel} from 'react-bootstrap';
-// import Board from './Board';
 import SingleBoard from './SingleBoard';
 import MultiBoard from './MultiBoard';
 import WinAlert from './WinAlert';
@@ -20,7 +15,7 @@ class BoardPanel extends Component {
     } else if (this.props.mode === 'multiple') {
       boardElem = <MultiBoard/>;
     } else {
-      boardElem = <div></div>;
+      boardElem = <div/>;
     }
 
     return (

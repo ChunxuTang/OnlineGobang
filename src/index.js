@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/16.
- */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -20,11 +16,6 @@ let store = applyMiddleware(socketIoMiddleware)(createStore)(reducers);
 store.subscribe(() => {
   console.log('new client state', store.getState());
 });
-// store.dispatch({
-//   type: 'server/hello',
-//   data: 'Hello'
-// });
-
 
 ReactDOM.render(
   <Provider store={store}>
@@ -32,14 +23,3 @@ ReactDOM.render(
   </Provider>,
   document.querySelector('.react-container')
 );
-
-
-// class HelloMessage extends React.Component {
-//   render() {
-//     return <div>Hello</div>;
-//   }
-// }
-//
-// ReactDOM.render(<HelloMessage/>, document.querySelector('.container'));
-
-

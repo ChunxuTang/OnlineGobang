@@ -1,7 +1,3 @@
-/**
- * Created by Chunxu on 2017/2/24.
- */
-
 import * as types from '../constants/ActionTypes';
 
 const side = (state = [], action) => {

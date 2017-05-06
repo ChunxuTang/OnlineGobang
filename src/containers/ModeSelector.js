@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Row, Col, Button, Modal} from 'react-bootstrap';
-// import { MdGamepad, MdPeople } from 'react-icons/lib/md';
 import {selectSinglePlayerMode, selectMultiPlayerMode} from '../actions/index';
 
 
@@ -50,7 +49,6 @@ class ModeSelector extends Component {
           <Row>
             <Col sm={12} md={12}>
               <Button bsStyle="primary" bsSize="large" onClick={ this.singleMode } block>
-                {/*<i className="fa fa-user"/>&nbsp;&nbsp;*/}
                 Single-Player
               </Button>
             </Col>
@@ -60,7 +58,6 @@ class ModeSelector extends Component {
             <Col sm={12} md={12}>
               <Button bsStyle="primary" bsSize="large" onClick={ this.multiMode }
                       block disabled={this.state.offline}>
-                {/*<i className="fa fa-users"/>&nbsp;&nbsp;*/}
                 Multi-Player
               </Button>
             </Col>
