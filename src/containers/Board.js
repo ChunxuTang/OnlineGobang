@@ -11,10 +11,10 @@ export default class Board extends Component {
 
     this.gameOver = false;
     this.myTurn = true;
-    this.wins = [];
+    this.wins = [];  // 3D array to store all types of wins
     this.myWin = [];
     this.otherWin = [];
-    this.count = 0;
+    this.count = 0;  // index used to refer to type of wins
   }
 
   startGame() {
@@ -41,6 +41,7 @@ export default class Board extends Component {
         this.wins[i][j] = [];
       }
     }
+    // all horizontal types of wins
     for (let i = 0; i < 15; i++) {
       for (let j = 0; j < 11; j++) {
         for (let k = 0; k < 5; k++) {
@@ -49,6 +50,7 @@ export default class Board extends Component {
         this.count++;
       }
     }
+    // all vertical types of wins
     for (let i = 0; i < 15; i++) {
       for (let j = 0; j < 11; j++) {
         for (let k = 0; k < 5; k++) {
@@ -57,6 +59,10 @@ export default class Board extends Component {
         this.count++;
       }
     }
+    // all
+    //  \
+    //   \
+    // types of wins
     for (let i = 0; i < 11; i++) {
       for (let j = 0; j < 11; j++) {
         for (let k = 0; k < 5; k++) {
@@ -65,6 +71,10 @@ export default class Board extends Component {
         this.count++;
       }
     }
+    // all
+    //    /
+    //  /
+    // types of wins
     for (let i = 0; i < 11; i++) {
       for (let j = 14; j > 3; j--) {
         for (let k = 0; k < 5; k++) {

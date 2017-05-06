@@ -55,6 +55,8 @@ class SingleBoard extends Board {
             }
           }
 
+          // Try to find the position of highest score
+
           if (myScore[i][j] > max) {
             max = myScore[i][j];
             u = i;
@@ -86,7 +88,6 @@ class SingleBoard extends Board {
         this.otherWin[k]++;
         this.myWin[k] = 6;
         if (this.otherWin[k] === 5) {
-          //window.alert('Computer wins');
           this.props.sideWon('White', false);
           this.gameOver = true;
         }
@@ -112,9 +113,8 @@ class SingleBoard extends Board {
       for (let k = 0; k < this.count; k++) {
         if (this.wins[i][j][k]) {
           this.myWin[k]++;
-          this.otherWin[k] = 6;
+          this.otherWin[k] = 6;  // I add a piece to this position, so computer can never win here.
           if (this.myWin[k] === 5) {
-            //window.alert("You win!");
             this.props.sideWon('Black', true);
             this.gameOver = true;
           }
