@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import Board from './Board';
 import {addPiece, sideWon} from '../actions/index';
+import {CELL_WIDTH} from '../constants/Grid';
 
 class MultiBoard extends Board {
   constructor(props) {
@@ -32,8 +33,8 @@ class MultiBoard extends Board {
       return;
     }
 
-    let i = Math.floor(e.nativeEvent.offsetX / 30);
-    let j = Math.floor(e.nativeEvent.offsetY / 30);
+    let i = Math.floor(e.nativeEvent.offsetX / CELL_WIDTH);
+    let j = Math.floor(e.nativeEvent.offsetY / CELL_WIDTH);
 
     if (this.chessBoard[i][j] === 0) {
       this.props.addPiece(i, j);

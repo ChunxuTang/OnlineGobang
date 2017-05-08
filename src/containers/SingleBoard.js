@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import Board from './Board';
 import {sideWon} from '../actions/index';
+import {GRID_WIDTH, CELL_WIDTH} from '../constants/Grid';
 
 class SingleBoard extends Board {
   constructor(props) {
@@ -16,21 +17,21 @@ class SingleBoard extends Board {
     this.startGame();
   }
 
-  computerAI() {
+  nextAIStep() {
     let myScore = [];
     let computerScore = [];
-    let max = 0;
-    let u = 0, v = 0;
-    for (let i = 0; i < 15; i++) {
+    let maxScore = 0;
+    let x = 0, y = 0;
+    for (let i = 0; i < GRID_WIDTH; i++) {
       myScore[i] = [];
       computerScore[i] = [];
-      for (let j = 0; j < 15; j++) {
+      for (let j = 0; j < GRID_WIDTH; j++) {
         myScore[i][j] = 0;
         computerScore[i][j] = 0;
       }
     }
-    for (let i = 0; i < 15; i++) {
-      for (let j = 0; j < 15; j++) {
+    for (let i = 0; i < GRID_WIDTH; i++) {
+      for (let j = 0; j < GRID_WIDTH; j++) {
         if (this.chessBoard[i][j] === 0) {
           for (let k = 0; k < this.count; k++) {
             if (this.wins[i][j][k]) {
@@ -43,6 +44,9 @@ class SingleBoard extends Board {
               } else if (this.myWin[k] === 4) {
                 myScore[i][j] += 10000;
               }
+
+              // Please note that here, the scores determined for otherWin are
+              // higher than those of myWin.
               if (this.otherWin[k] === 1) {
                 computerScore[i][j] += 220;
               } else if (this.otherWin[k] === 2) {
@@ -57,34 +61,39 @@ class SingleBoard extends Board {
 
           // Try to find the position of highest score
 
-          if (myScore[i][j] > max) {
-            max = myScore[i][j];
-            u = i;
-            v = j;
-          } else if (myScore[i][j] === max) {
-            if (computerScore[i][j] > computerScore[u][v]) {
-              u = i;
-              v = j;
+          if (myScore[i][j] > maxScore) {
+            maxScore = myScore[i][j];
+            x = i;
+            y = j;
+          } else if (myScore[i][j] === maxScore) {
+            if (computerScore[i][j] > computerScore[x][y]) {
+              x = i;
+              y = j;
             }
           }
-          if (computerScore[i][j] > max) {
-            max = computerScore[i][j];
-            u = i;
-            v = j;
-          } else if (computerScore[i][j] === max) {
-            if (myScore[i][j] > myScore[u][v]) {
-              u = i;
-              v = j;
+          if (computerScore[i][j] > maxScore) {
+            maxScore = computerScore[i][j];
+            x = i;
+            y = j;
+          } else if (computerScore[i][j] === maxScore) {
+            if (myScore[i][j] > myScore[x][y]) {
+              x = i;
+              y = j;
             }
           }
         }
       }
     }
 
-    this.drawPiece(u, v, false);
-    this.chessBoard[u][v] = 2;
+    return [x, y];
+  }
+
+  computerAI() {
+    let [x, y] = this.nextAIStep();
+    this.drawPiece(x, y, false);
+    this.chessBoard[x][y] = 2;
     for (let k = 0; k < this.count; k++) {
-      if (this.wins[u][v][k]) {
+      if (this.wins[x][y][k]) {
         this.otherWin[k]++;
         this.myWin[k] = 6;
         if (this.otherWin[k] === 5) {
@@ -104,8 +113,8 @@ class SingleBoard extends Board {
       return;
     }
     console.log(e.nativeEvent.offsetX);
-    let i = Math.floor(e.nativeEvent.offsetX / 30);
-    let j = Math.floor(e.nativeEvent.offsetY / 30);
+    let i = Math.floor(e.nativeEvent.offsetX / CELL_WIDTH);
+    let j = Math.floor(e.nativeEvent.offsetY / CELL_WIDTH);
 
     if (this.chessBoard[i][j] === 0) {
       this.drawPiece(i, j, true);
