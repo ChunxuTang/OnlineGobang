@@ -7,8 +7,6 @@ import WinAlert from './WinAlert';
 
 class BoardPanel extends Component {
   render() {
-    console.log('BoardPanel', this.props.mode);
-
     let boardElem;
     if (this.props.mode === 'single') {
       boardElem = <SingleBoard/>;

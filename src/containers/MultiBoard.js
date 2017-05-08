@@ -59,9 +59,6 @@ class MultiBoard extends Board {
   }
 
   render() {
-    console.log('call multi board.js');
-    console.log(this.props.game);
-
     if (this.props.game.piece) {
       let x = this.props.game.piece.x;
       let y = this.props.game.piece.y;

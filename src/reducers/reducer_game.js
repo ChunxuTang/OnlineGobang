@@ -1,7 +1,6 @@
 import * as types from '../constants/ActionTypes';
 
 const game = (state = {}, action) => {
-  console.log('socketio', action);
   switch (action.type) {
     case types.ADD_PIECE:
       return Object.assign({}, {

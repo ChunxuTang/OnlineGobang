@@ -77,15 +77,11 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducers = __webpack_require__(548);
+	var _reducers = __webpack_require__(550);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by Chunxu on 2017/2/16.
-	 */
 
 	var socket = (0, _socket2.default)(location.protocol + '//' + location.hostname);
 	var socketIoMiddleware = (0, _reduxSocket2.default)(socket, 'server/');
@@ -94,25 +90,12 @@
 	store.subscribe(function () {
 	  console.log('new client state', store.getState());
 	});
-	// store.dispatch({
-	//   type: 'server/hello',
-	//   data: 'Hello'
-	// });
-
 
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
 	  _react2.default.createElement(_App2.default, null)
 	), document.querySelector('.react-container'));
-
-	// class HelloMessage extends React.Component {
-	//   render() {
-	//     return <div>Hello</div>;
-	//   }
-	// }
-	//
-	// ReactDOM.render(<HelloMessage/>, document.querySelector('.container'));
 
 /***/ },
 /* 2 */
@@ -32551,7 +32534,7 @@
 
 	var _BoardPanel2 = _interopRequireDefault(_BoardPanel);
 
-	var _ModeSelector = __webpack_require__(547);
+	var _ModeSelector = __webpack_require__(549);
 
 	var _ModeSelector2 = _interopRequireDefault(_ModeSelector);
 
@@ -32562,8 +32545,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import Board from '../containers/Board';
-
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -32621,9 +32602,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Chunxu on 2017/2/22.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Nav = function (_Component) {
 	  _inherits(Nav, _Component);
@@ -52055,9 +52034,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Chunxu on 2017/2/21.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var ControlPanel = function (_Component) {
 	  _inherits(ControlPanel, _Component);
@@ -52072,7 +52049,6 @@
 	    };
 
 	    _this.handleCreateRoom = _this.handleCreateRoom.bind(_this);
-	    //this.handleJoinRoom = this.handleJoinRoom.bind(this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleInputChange = _this.handleInputChange.bind(_this);
 	    return _this;
@@ -52081,7 +52057,6 @@
 	  _createClass(ControlPanel, [{
 	    key: 'handleCreateRoom',
 	    value: function handleCreateRoom() {
-	      console.log('create room');
 	      this.props.createRoom();
 	      this.props.selectSide('Black');
 	    }
@@ -52093,7 +52068,6 @@
 	      }
 	      this.props.joinRoom(this.state.room);
 	      this.props.selectSide('White');
-	      console.log(this.state.room);
 	    }
 	  }, {
 	    key: 'handleSubmit',
@@ -52111,8 +52085,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.props.mode);
-
 	      if (this.props.mode === 'single') {
 	        return _react2.default.createElement('div', null);
 	      }
@@ -52176,7 +52148,6 @@
 	}(_react.Component);
 
 	function mapStateToProps(state) {
-	  console.log('mapState', state);
 	  return {
 	    mode: state.mode,
 	    game: state.game
@@ -52214,9 +52185,7 @@
 	  return {
 	    type: types.START_SINGLE_MODE
 	  };
-	}; /**
-	    * Created by Chunxu on 2017/2/21.
-	    */
+	};
 
 	var selectMultiPlayerMode = exports.selectMultiPlayerMode = function selectMultiPlayerMode() {
 	  return {
@@ -52304,11 +52273,11 @@
 
 	var _SingleBoard2 = _interopRequireDefault(_SingleBoard);
 
-	var _MultiBoard = __webpack_require__(545);
+	var _MultiBoard = __webpack_require__(547);
 
 	var _MultiBoard2 = _interopRequireDefault(_MultiBoard);
 
-	var _WinAlert = __webpack_require__(546);
+	var _WinAlert = __webpack_require__(548);
 
 	var _WinAlert2 = _interopRequireDefault(_WinAlert);
 
@@ -52318,12 +52287,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Chunxu on 2017/2/23.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// import Board from './Board';
-
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var BoardPanel = function (_Component) {
 	  _inherits(BoardPanel, _Component);
@@ -52337,8 +52301,6 @@
 	  _createClass(BoardPanel, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log('BoardPanel', this.props.mode);
-
 	      var boardElem = void 0;
 	      if (this.props.mode === 'single') {
 	        boardElem = _react2.default.createElement(_SingleBoard2.default, null);
@@ -52390,6 +52352,8 @@
 	  value: true
 	});
 
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
@@ -52405,6 +52369,8 @@
 	var _Board3 = _interopRequireDefault(_Board2);
 
 	var _index = __webpack_require__(540);
+
+	var _Grid = __webpack_require__(545);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52432,23 +52398,23 @@
 	      this.startGame();
 	    }
 	  }, {
-	    key: 'computerAI',
-	    value: function computerAI() {
+	    key: 'nextAIStep',
+	    value: function nextAIStep() {
 	      var myScore = [];
 	      var computerScore = [];
-	      var max = 0;
-	      var u = 0,
-	          v = 0;
-	      for (var i = 0; i < 15; i++) {
+	      var maxScore = 0;
+	      var x = 0,
+	          y = 0;
+	      for (var i = 0; i < _Grid.GRID_WIDTH; i++) {
 	        myScore[i] = [];
 	        computerScore[i] = [];
-	        for (var j = 0; j < 15; j++) {
+	        for (var j = 0; j < _Grid.GRID_WIDTH; j++) {
 	          myScore[i][j] = 0;
 	          computerScore[i][j] = 0;
 	        }
 	      }
-	      for (var _i = 0; _i < 15; _i++) {
-	        for (var _j = 0; _j < 15; _j++) {
+	      for (var _i = 0; _i < _Grid.GRID_WIDTH; _i++) {
+	        for (var _j = 0; _j < _Grid.GRID_WIDTH; _j++) {
 	          if (this.chessBoard[_i][_j] === 0) {
 	            for (var k = 0; k < this.count; k++) {
 	              if (this.wins[_i][_j][k]) {
@@ -52461,6 +52427,9 @@
 	                } else if (this.myWin[k] === 4) {
 	                  myScore[_i][_j] += 10000;
 	                }
+
+	                // Please note that here, the scores determined for otherWin are
+	                // higher than those of myWin.
 	                if (this.otherWin[k] === 1) {
 	                  computerScore[_i][_j] += 220;
 	                } else if (this.otherWin[k] === 2) {
@@ -52473,38 +52442,49 @@
 	              }
 	            }
 
-	            if (myScore[_i][_j] > max) {
-	              max = myScore[_i][_j];
-	              u = _i;
-	              v = _j;
-	            } else if (myScore[_i][_j] === max) {
-	              if (computerScore[_i][_j] > computerScore[u][v]) {
-	                u = _i;
-	                v = _j;
+	            // Try to find the position of highest score
+
+	            if (myScore[_i][_j] > maxScore) {
+	              maxScore = myScore[_i][_j];
+	              x = _i;
+	              y = _j;
+	            } else if (myScore[_i][_j] === maxScore) {
+	              if (computerScore[_i][_j] > computerScore[x][y]) {
+	                x = _i;
+	                y = _j;
 	              }
 	            }
-	            if (computerScore[_i][_j] > max) {
-	              max = computerScore[_i][_j];
-	              u = _i;
-	              v = _j;
-	            } else if (computerScore[_i][_j] === max) {
-	              if (myScore[_i][_j] > myScore[u][v]) {
-	                u = _i;
-	                v = _j;
+	            if (computerScore[_i][_j] > maxScore) {
+	              maxScore = computerScore[_i][_j];
+	              x = _i;
+	              y = _j;
+	            } else if (computerScore[_i][_j] === maxScore) {
+	              if (myScore[_i][_j] > myScore[x][y]) {
+	                x = _i;
+	                y = _j;
 	              }
 	            }
 	          }
 	        }
 	      }
 
-	      this.drawPiece(u, v, false);
-	      this.chessBoard[u][v] = 2;
-	      for (var _k = 0; _k < this.count; _k++) {
-	        if (this.wins[u][v][_k]) {
-	          this.otherWin[_k]++;
-	          this.myWin[_k] = 6;
-	          if (this.otherWin[_k] === 5) {
-	            //window.alert('Computer wins');
+	      return [x, y];
+	    }
+	  }, {
+	    key: 'computerAI',
+	    value: function computerAI() {
+	      var _nextAIStep = this.nextAIStep(),
+	          _nextAIStep2 = _slicedToArray(_nextAIStep, 2),
+	          x = _nextAIStep2[0],
+	          y = _nextAIStep2[1];
+
+	      this.drawPiece(x, y, false);
+	      this.chessBoard[x][y] = 2;
+	      for (var k = 0; k < this.count; k++) {
+	        if (this.wins[x][y][k]) {
+	          this.otherWin[k]++;
+	          this.myWin[k] = 6;
+	          if (this.otherWin[k] === 5) {
 	            this.props.sideWon('White', false);
 	            this.gameOver = true;
 	          }
@@ -52522,8 +52502,8 @@
 	        return;
 	      }
 	      console.log(e.nativeEvent.offsetX);
-	      var i = Math.floor(e.nativeEvent.offsetX / 30);
-	      var j = Math.floor(e.nativeEvent.offsetY / 30);
+	      var i = Math.floor(e.nativeEvent.offsetX / _Grid.CELL_WIDTH);
+	      var j = Math.floor(e.nativeEvent.offsetY / _Grid.CELL_WIDTH);
 
 	      if (this.chessBoard[i][j] === 0) {
 	        this.drawPiece(i, j, true);
@@ -52531,9 +52511,8 @@
 	        for (var k = 0; k < this.count; k++) {
 	          if (this.wins[i][j][k]) {
 	            this.myWin[k]++;
-	            this.otherWin[k] = 6;
+	            this.otherWin[k] = 6; // I add a piece to this position, so computer can never win here.
 	            if (this.myWin[k] === 5) {
-	              //window.alert("You win!");
 	              this.props.sideWon('Black', true);
 	              this.gameOver = true;
 	            }
@@ -52549,7 +52528,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('call single board.js');
 	      return _react2.default.createElement(_Board3.default, { onClick: this.handleClick });
 	    }
 	  }]);
@@ -52589,6 +52567,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Grid = __webpack_require__(545);
+
+	var _Game = __webpack_require__(546);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52613,10 +52595,10 @@
 
 	    _this.gameOver = false;
 	    _this.myTurn = true;
-	    _this.wins = [];
+	    _this.wins = []; // 3D array to store all types of wins
 	    _this.myWin = [];
 	    _this.otherWin = [];
-	    _this.count = 0;
+	    _this.count = 0; // index used to refer to type of wins
 	    return _this;
 	  }
 
@@ -52625,9 +52607,9 @@
 	    value: function startGame() {
 	      this.canvas = document.querySelector('canvas');
 	      this.ctx = this.canvas.getContext('2d');
-	      for (var i = 0; i < 15; i++) {
+	      for (var i = 0; i < _Grid.GRID_WIDTH; i++) {
 	        this.chessBoard[i] = [];
-	        for (var j = 0; j < 15; j++) {
+	        for (var j = 0; j < _Grid.GRID_WIDTH; j++) {
 	          this.chessBoard[i][j] = 0;
 	        }
 	      }
@@ -52635,46 +52617,60 @@
 	      this.clearBoard();
 	      this.drawBoard();
 
-	      for (var _i = 0; _i < 15; _i++) {
-	        this.wins[_i] = [];
-	        for (var _j = 0; _j < 15; _j++) {
-	          this.wins[_i][_j] = [];
-	        }
-	      }
-	      for (var _i2 = 0; _i2 < 15; _i2++) {
-	        for (var _j2 = 0; _j2 < 11; _j2++) {
-	          for (var k = 0; k < 5; k++) {
-	            this.wins[_i2][_j2 + k][this.count] = true;
-	          }
-	          this.count++;
-	        }
-	      }
-	      for (var _i3 = 0; _i3 < 15; _i3++) {
-	        for (var _j3 = 0; _j3 < 11; _j3++) {
-	          for (var _k = 0; _k < 5; _k++) {
-	            this.wins[_j3 + _k][_i3][this.count] = true;
-	          }
-	          this.count++;
-	        }
-	      }
-	      for (var _i4 = 0; _i4 < 11; _i4++) {
-	        for (var _j4 = 0; _j4 < 11; _j4++) {
-	          for (var _k2 = 0; _k2 < 5; _k2++) {
-	            this.wins[_i4 + _k2][_j4 + _k2][this.count] = true;
-	          }
-	          this.count++;
-	        }
-	      }
-	      for (var _i5 = 0; _i5 < 11; _i5++) {
-	        for (var _j5 = 14; _j5 > 3; _j5--) {
-	          for (var _k3 = 0; _k3 < 5; _k3++) {
-	            this.wins[_i5 + _k3][_j5 - _k3][this.count] = true;
-	          }
-	          this.count++;
-	        }
-	      }
-
+	      this.initWins();
 	      this.initWinArrays();
+	    }
+	  }, {
+	    key: 'initWins',
+	    value: function initWins() {
+	      for (var i = 0; i < _Grid.GRID_WIDTH; i++) {
+	        this.wins[i] = [];
+	        for (var j = 0; j < _Grid.GRID_WIDTH; j++) {
+	          this.wins[i][j] = [];
+	        }
+	      }
+	      // all horizontal types of wins
+	      for (var _i = 0; _i < _Grid.GRID_WIDTH; _i++) {
+	        for (var _j = 0; _j < _Grid.LEFT_GRID_WIDTH; _j++) {
+	          for (var k = 0; k < _Game.WIN_PIECE_COUNT; k++) {
+	            this.wins[_i][_j + k][this.count] = true;
+	          }
+	          this.count++;
+	        }
+	      }
+	      // all vertical types of wins
+	      for (var _i2 = 0; _i2 < _Grid.GRID_WIDTH; _i2++) {
+	        for (var _j2 = 0; _j2 < _Grid.LEFT_GRID_WIDTH; _j2++) {
+	          for (var _k = 0; _k < _Game.WIN_PIECE_COUNT; _k++) {
+	            this.wins[_j2 + _k][_i2][this.count] = true;
+	          }
+	          this.count++;
+	        }
+	      }
+	      // all
+	      //  \
+	      //   \
+	      // types of wins
+	      for (var _i3 = 0; _i3 < _Grid.LEFT_GRID_WIDTH; _i3++) {
+	        for (var _j3 = 0; _j3 < _Grid.LEFT_GRID_WIDTH; _j3++) {
+	          for (var _k2 = 0; _k2 < _Game.WIN_PIECE_COUNT; _k2++) {
+	            this.wins[_i3 + _k2][_j3 + _k2][this.count] = true;
+	          }
+	          this.count++;
+	        }
+	      }
+	      // all
+	      //    /
+	      //  /
+	      // types of wins
+	      for (var _i4 = 0; _i4 < _Grid.LEFT_GRID_WIDTH; _i4++) {
+	        for (var _j4 = _Grid.GRID_WIDTH - 1; _j4 > 3; _j4--) {
+	          for (var _k3 = 0; _k3 < _Game.WIN_PIECE_COUNT; _k3++) {
+	            this.wins[_i4 + _k3][_j4 - _k3][this.count] = true;
+	          }
+	          this.count++;
+	        }
+	      }
 	    }
 	  }, {
 	    key: 'initWinArrays',
@@ -52687,16 +52683,16 @@
 	  }, {
 	    key: 'drawBoard',
 	    value: function drawBoard() {
-	      for (var i = 0; i < 15; i++) {
+	      for (var i = 0; i < _Grid.GRID_WIDTH; i++) {
 	        this.ctx.strokeStyle = '#424242';
 	        this.ctx.beginPath();
-	        this.ctx.moveTo(15 + i * 30, 15);
-	        this.ctx.lineTo(15 + i * 30, this.canvas.height - 15);
+	        this.ctx.moveTo(_Grid.GRID_WIDTH + i * _Grid.CELL_WIDTH, _Grid.GRID_WIDTH);
+	        this.ctx.lineTo(_Grid.GRID_WIDTH + i * _Grid.CELL_WIDTH, this.canvas.height - _Grid.GRID_WIDTH);
 	        this.ctx.closePath();
 	        this.ctx.stroke();
 	        this.ctx.beginPath();
-	        this.ctx.moveTo(15, 15 + i * 30);
-	        this.ctx.lineTo(this.canvas.width - 15, 15 + i * 30);
+	        this.ctx.moveTo(_Grid.GRID_WIDTH, _Grid.GRID_WIDTH + i * _Grid.GRID_WIDTH * 2);
+	        this.ctx.lineTo(this.canvas.width - _Grid.GRID_WIDTH, _Grid.GRID_WIDTH + i * _Grid.CELL_WIDTH);
 	        this.ctx.closePath();
 	        this.ctx.stroke();
 	      }
@@ -52711,10 +52707,10 @@
 	    key: 'drawPiece',
 	    value: function drawPiece(x, y, isBlack) {
 	      this.ctx.beginPath();
-	      this.ctx.arc(15 + x * 30, 15 + y * 30, 13, 0, 2 * Math.PI);
+	      this.ctx.arc(_Grid.GRID_WIDTH + x * _Grid.CELL_WIDTH, _Grid.GRID_WIDTH + y * _Grid.CELL_WIDTH, 13, 0, 2 * Math.PI);
 	      this.ctx.closePath();
 
-	      var gradient = this.ctx.createRadialGradient(15 + x * 30 + 2, 15 + y * 30 - 2, 13, 15 + x * 30 + 2, 15 + y * 30 - 2, 0);
+	      var gradient = this.ctx.createRadialGradient(_Grid.GRID_WIDTH + x * _Grid.CELL_WIDTH + 2, _Grid.GRID_WIDTH + y * _Grid.CELL_WIDTH - 2, 13, _Grid.GRID_WIDTH + x * _Grid.CELL_WIDTH + 2, _Grid.GRID_WIDTH + y * _Grid.CELL_WIDTH - 2, 0);
 	      if (isBlack) {
 	        gradient.addColorStop(0, "#0A0A0A");
 	        gradient.addColorStop(1, "#616161");
@@ -52729,7 +52725,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('call board.js');
 	      return _react2.default.createElement('canvas', _extends({ id: 'board' }, this.props, { className: 'center-block', width: '450px',
 	        height: '450px;' }));
 	    }
@@ -52742,6 +52737,30 @@
 
 /***/ },
 /* 545 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var GRID_WIDTH = exports.GRID_WIDTH = 15;
+	var CELL_WIDTH = exports.CELL_WIDTH = 30;
+	var LEFT_GRID_WIDTH = exports.LEFT_GRID_WIDTH = 11;
+
+/***/ },
+/* 546 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var WIN_PIECE_COUNT = exports.WIN_PIECE_COUNT = 5;
+
+/***/ },
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52765,6 +52784,8 @@
 	var _Board3 = _interopRequireDefault(_Board2);
 
 	var _index = __webpack_require__(540);
+
+	var _Grid = __webpack_require__(545);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52810,8 +52831,8 @@
 	        return;
 	      }
 
-	      var i = Math.floor(e.nativeEvent.offsetX / 30);
-	      var j = Math.floor(e.nativeEvent.offsetY / 30);
+	      var i = Math.floor(e.nativeEvent.offsetX / _Grid.CELL_WIDTH);
+	      var j = Math.floor(e.nativeEvent.offsetY / _Grid.CELL_WIDTH);
 
 	      if (this.chessBoard[i][j] === 0) {
 	        this.props.addPiece(i, j);
@@ -52837,9 +52858,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('call multi board.js');
-	      console.log(this.props.game);
-
 	      if (this.props.game.piece) {
 	        var x = this.props.game.piece.x;
 	        var y = this.props.game.piece.y;
@@ -52885,7 +52903,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MultiBoard);
 
 /***/ },
-/* 546 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52910,9 +52928,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Chunxu on 2017/2/24.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var WinAlert = function (_Component) {
 	  _inherits(WinAlert, _Component);
@@ -52955,8 +52971,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('WinAlert', this.props.side);
-
 	      var side = this.props.side;
 	      if (!side.color) {
 	        return _react2.default.createElement('div', null);
@@ -52994,7 +53008,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(WinAlert);
 
 /***/ },
-/* 547 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53024,8 +53038,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import { MdGamepad, MdPeople } from 'react-icons/lib/md';
-
 
 	var ModeSelector = function (_Component) {
 	  _inherits(ModeSelector, _Component);
@@ -53136,7 +53148,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(ModeSelector);
 
 /***/ },
-/* 548 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53147,19 +53159,19 @@
 
 	var _redux = __webpack_require__(190);
 
-	var _reducer_mode = __webpack_require__(549);
+	var _reducer_mode = __webpack_require__(551);
 
 	var _reducer_mode2 = _interopRequireDefault(_reducer_mode);
 
-	var _reducer_side = __webpack_require__(550);
+	var _reducer_side = __webpack_require__(552);
 
 	var _reducer_side2 = _interopRequireDefault(_reducer_side);
 
-	var _reducer_game = __webpack_require__(551);
+	var _reducer_game = __webpack_require__(553);
 
 	var _reducer_game2 = _interopRequireDefault(_reducer_game);
 
-	var _reducer_color = __webpack_require__(552);
+	var _reducer_color = __webpack_require__(554);
 
 	var _reducer_color2 = _interopRequireDefault(_reducer_color);
 
@@ -53170,14 +53182,12 @@
 	  side: _reducer_side2.default,
 	  game: _reducer_game2.default,
 	  color: _reducer_color2.default
-	}); /**
-	     * Created by Chunxu on 2017/2/21.
-	     */
+	});
 
 	exports.default = rootReducer;
 
 /***/ },
-/* 549 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53196,26 +53206,20 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
-	  console.log('reducer: ', action);
 	  switch (action.type) {
 	    case types.START_SINGLE_MODE:
 	      return 'single';
 	    case types.START_MULTI_MODE:
-	      // return Object.assign({}, state, {
-	      //   mode: 'multiple'
-	      // });
 	      return 'multiple';
 	    default:
 	      return state;
 	  }
-	}; /**
-	    * Created by Chunxu on 2017/2/21.
-	    */
+	};
 
 	exports.default = mode;
 
 /***/ },
-/* 550 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53234,7 +53238,6 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
-	  console.log('side', action);
 	  switch (action.type) {
 	    case types.SIDE_WON:
 	      return {
@@ -53244,14 +53247,12 @@
 	    default:
 	      return state;
 	  }
-	}; /**
-	    * Created by Chunxu on 2017/2/24.
-	    */
+	};
 
 	exports.default = side;
 
 /***/ },
-/* 551 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53270,7 +53271,6 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
-	  console.log('socketio', action);
 	  switch (action.type) {
 	    case types.ADD_PIECE:
 	      return Object.assign({}, {
@@ -53287,14 +53287,12 @@
 	    default:
 	      return state;
 	  }
-	}; /**
-	    * Created by Chunxu on 2017/2/25.
-	    */
+	};
 
 	exports.default = game;
 
 /***/ },
-/* 552 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53313,16 +53311,13 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
-	  console.log('color', action);
 	  switch (action.type) {
 	    case types.SELECT_SIDE:
 	      return action.color;
 	    default:
 	      return state;
 	  }
-	}; /**
-	    * Created by Chunxu on 2017/2/26.
-	    */
+	};
 
 	exports.default = color;
 

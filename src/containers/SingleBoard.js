@@ -138,7 +138,6 @@ class SingleBoard extends Board {
   }
 
   render() {
-    console.log('call single board.js');
     return (
       <Board onClick={ this.handleClick }/>
     );

@@ -33,8 +33,6 @@ class WinAlert extends Component {
   }
 
   render() {
-    console.log('WinAlert', this.props.side);
-
     let side = this.props.side;
     if (!side.color) {
       return <div/>;

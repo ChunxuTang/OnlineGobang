@@ -135,7 +135,6 @@ export default class Board extends Component {
   }
 
   render() {
-    console.log('call board.js');
     return (
       <canvas id="board" {...this.props} className="center-block" width="450px"
               height="450px;"/>

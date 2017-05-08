@@ -19,7 +19,6 @@ class ControlPanel extends Component {
   }
 
   handleCreateRoom() {
-    console.log('create room');
     this.props.createRoom();
     this.props.selectSide('Black');
   }
@@ -30,7 +29,6 @@ class ControlPanel extends Component {
     }
     this.props.joinRoom(this.state.room);
     this.props.selectSide('White');
-    console.log(this.state.room);
   }
 
   handleSubmit(e) {
@@ -45,8 +43,6 @@ class ControlPanel extends Component {
   }
 
   render() {
-    console.log(this.props.mode);
-
     if (this.props.mode === 'single') {
       return <div/>;
     }
@@ -83,7 +79,6 @@ class ControlPanel extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('mapState', state);
   return {
     mode: state.mode,
     game: state.game
