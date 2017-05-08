@@ -1,3 +1,1 @@
-
-export const BLACK_SIDE = 1;
-export const WHITE_SIDE = 0;
+export const WIN_PIECE_COUNT = 5;
